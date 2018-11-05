@@ -4,10 +4,9 @@ import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class Client implements Runnable{
+public class Client {
 
-    @Override
-    public void run (){
+    public static void main(String[] args){
         try(Socket socket = new Socket("localhost", 3360);
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             DataOutputStream oos = new DataOutputStream(socket.getOutputStream());)

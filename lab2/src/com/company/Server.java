@@ -7,16 +7,14 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-    public int find = 5;
-    public long finish = 0;
-    public long start = 0;
-    public String entry;
+    public static int find = 5;
+    public static long finish = 0;
+    public static long start = 0;
+    public static String entry;
 
-    public Server(){
+    public static void main(String[] args){
         try (ServerSocket server = new ServerSocket(3360)){
             Socket client = server.accept();
-            Client clh = new Client();
-            new Thread(clh).start();
             DataOutputStream out = new DataOutputStream(client.getOutputStream());
             DataInputStream in = new DataInputStream(client.getInputStream());
             out.writeUTF("Enter the number\n");
@@ -47,5 +45,5 @@ public class Server {
         }
     }
 
-    public void quit() {System.exit(0);}
+    public static void quit() {System.exit(0);}
 }
